@@ -12,7 +12,7 @@ function createListElement() {
 	var li = document.createElement("li");
 	li.appendChild(document.createTextNode(input.value));
 	ul.appendChild(li);
-	liList.push('li');
+	// liList.push('li');
 	input.value = "";
 }
 
@@ -28,20 +28,17 @@ function addListAfterKeypress(event) {
 	}
 }
 li.onclick = toggleList(event);
+var listLength =  liList.length
 function toggleList(event){
-	liList.forEach(function(event,i){
+	for(var i=0; i<listLength; i++){
 
-		event.classList.toggle("done");
-		console.log(i);
-	})
-	
+		event.target.classList.toggle("done");
+		console.log(event.target);
+	}
 }
 button.addEventListener("click", addListAfterClick);
 
 input.addEventListener("keypress", addListAfterKeypress);
 
-// li.addEventListener("click", toggleList);
-// EventTarget.onclick
+li.addEventListener("click", toggleList);
 
-
-var array = ["Banana", "Apples", "Oranges", "Blueberries"];
